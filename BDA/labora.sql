@@ -26,5 +26,8 @@ where l.año is not null;
 /*5. ¿Cuántos libros tienen más de una obra? Resolver este ejercicio utilizando el atributo
 num_obras*/
 
+select COUNT(l.id_lib)
+from libro l
+where l.num_obras>1
 
 /* 7. Mostrar todos los títulos de los libros que tienen título en orden alfabético descendente. */
