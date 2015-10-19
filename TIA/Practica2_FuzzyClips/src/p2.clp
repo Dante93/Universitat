@@ -31,3 +31,24 @@
     (assert (estrategia salir-corriendo))
     (printout t "La mejor estrategia es salir corriendo." crlf)
     )
+
+;;ESTRATEGIA DEJAR KO
+(defrule dejar-ko
+	(salud-enemigo cercana-muerte)
+    (or (salud-principal buena)(salud-principal excelente))
+    =>
+    (assert (estrategia KO))
+    (printout t "La mejor estrategia es dejar fuera de combate al enemigo" crlf) 
+    )
+
+(defrule dejar-ko1
+	(salud-enemigo buena)
+    (salud-principal excelente)
+    =>
+    (assert (estrategia KO))
+    (printout t "La mejor estrategia es dejar fuera de combate al enemigo" crlf) 
+    )
+
+;; CUALQUIER OTRO CASO, ATAQUE DEFENSIVO
+
+
