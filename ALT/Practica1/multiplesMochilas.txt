@@ -1,0 +1,14 @@
+Almacen con 10 objetos:
+Televisor Panasonic pesa 4 kg vale 300 euros
+Televisor Sony pesa 14 kg vale 250 libras
+DVD hitachi pesa 3500 g vale 55 dolares
+caja cerillas pesa 20 g vale 1.5 euros
+portatil ultrabook pesa 900 g vale 1200 euros
+pen usb 2Gb pesa 100 g vale 7 euros
+pinza colgar ropa pesa 20 g vale 0.1 euros
+billete 5 euros pesa 1 g vale 5 euros
+pesa de 1kg pesa 1 kg vale 5 euros
+lingote oro pesa 500 g vale 490000 euros
+En la mochila azul oscuro caben 300 g
+En la mochila roja caben 1.5 kg
+En la mochila verde claro caben 250 g

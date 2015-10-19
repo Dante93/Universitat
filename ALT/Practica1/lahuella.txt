@@ -1,0 +1,14 @@
+MENU DE LA HUELLA
+4 primeros:
+Arroz a Banda 2.30 euros
+Hervido Valenciano 1.50 euros
+Pure de verduras 1.7 euros
+Canelones graten 2 euros
+3 segundos:
+huevo delicias 2 euros
+san jacobo  1.8 euros
+merluza menier 1.8 euros
+3 postres:
+naranja preparada 0.7 euros
+pudding           0.8 euros
+mousse de cafe    0.6 euros
