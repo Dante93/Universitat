@@ -39,6 +39,7 @@ def dp_seam_carving(width,height,grad,mat):
     """
     infty=1e99
     # first row deserves special treatment:
+	#Primera fila tada a 0
     for x in range(width):
         mat[0][x] = 0
     # the rest of rows
@@ -46,6 +47,10 @@ def dp_seam_carving(width,height,grad,mat):
         mat[y][0]       = infty
         mat[y][width-1] = infty
         # COMPLETE
+		#for x in range(2,width-2):
+		min_val = numpy.amin(mat[y])
+		min_point = numpy.argmin(mat[y])
+
     # min_val, min_point = COMPLETE
     # retrieve the best path from min_point
     # path = [min_point]
@@ -64,7 +69,7 @@ def dp_seam_carving(width,height,grad,mat):
 
 def matrix_to_color_image(color_matrix):
     return Image.fromarray(numpy.array(color_matrix, dtype=numpy.uint8))
-    
+
 def save_matrix_as_color_image(color_matrix,filename):
     img = matrix_to_color_image(color_matrix)
     img.save(filename)
@@ -97,7 +102,7 @@ class MyTkApp():
 
         l = Tkinter.Label(self.root)
         l.pack()
-        self.b = Tkinter.Button(self.root, text="Begin", command=self.runSeamCarving)
+        self.b = Tkinter.Button(self.root, text="Empezar", command=self.runSeamCarving)
         self.b.pack()
         self.running = True
         self.root.mainloop()
@@ -112,6 +117,7 @@ class MyTkApp():
         self.canvas.update()
 
     def runSeamCarving(self):
+      #self es como el this de Java
       self.b.config(text="Carving...")
       t0 = time.time()
 
@@ -121,24 +127,24 @@ class MyTkApp():
       removed_colums = self.removed_colums
 
       width,height = color_img.size
-      # convert the color image to a numpy array    
+      # convert the color image to a numpy array
       color_numpy = numpy.array(color_img.getdata()).reshape(height, width,3) # 3 for RGB
       # convert the numpy array into a list of lists, we will use this
       # list of lists (a list of rows) as our data structure during the
       # computations:
       color_matrix = color_numpy.tolist()
-      
+
       # make the same for the grayscale version of the image:
       grayscale_img = color_img.convert("F")
       grayscale_numpy = numpy.array(grayscale_img.getdata()).reshape(height,width)
       grayscale_matrix = grayscale_numpy.tolist()
-      
+
       # let's construct the gradient matrix as a list of lists:
       gradient_matrix = [[0.0 for x in range(width)] for y in range(height)]
       # let's construct the dynamic programming matrix as a list of lists:
       infty = 1e99
       dp_matrix = [[infty for x in range(width)] for y in range(height)]
-      
+
       self.showImg(color_img) # show image
       for iteration in range(removed_colums):
         # compute the gradient
@@ -176,7 +182,7 @@ if __name__ == "__main__":
         print '\n%s image_file gradient_type{0|1|2} {num_column|%%}\n'\
               % (sys.argv[0],)
         sys.exit()
-        
+
     file_name = sys.argv[1]
     gradient_type = int(sys.argv[2])
     ncolumns = sys.argv[3]
@@ -201,4 +207,3 @@ if __name__ == "__main__":
     app = MyTkApp(color_img,
 		  gradient_type,
 		  removed_colums)
-
